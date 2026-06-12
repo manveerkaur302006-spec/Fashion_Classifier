@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
+const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 function App() {
   const [file, setFile] = useState(null);
@@ -31,7 +33,7 @@ function App() {
     formData.append("image", file);
 
     try {
-      const response = await fetch("http://localhost:8000/predict", {
+      const response = await fetch(`${apiUrl}/predict`, {
         method: "POST",
         body: formData,
       });

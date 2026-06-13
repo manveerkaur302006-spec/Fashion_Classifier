@@ -12,7 +12,7 @@ CORS(app, resources={
     r"/*": {
         "origins": [
             "http://localhost:5173",
-            "http://127.0.0.1:5173"
+            "https://fashion-classifier-neon.vercel.app"
         ]
     }
 })
@@ -56,7 +56,11 @@ def predict():
 
     img = img.reshape(1,28,28)
 
+    print("Starting prediction...")
+
     prediction = model.predict(img)
+
+    print("Prediction complete")
 
     index = np.argmax(prediction)
 

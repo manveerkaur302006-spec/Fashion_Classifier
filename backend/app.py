@@ -37,7 +37,13 @@ def home():
     return {"message": "Fashion Classifier API"}
 
 @app.route("/predict", methods=["POST"])
+# def predict():
+@app.route("/predict", methods=["POST"])
 def predict():
+    return jsonify({
+        "class": "test",
+        "confidence": 1.0
+    })
 
     if "image" not in request.files:
         return jsonify({"error": "No image uploaded"}), 400
